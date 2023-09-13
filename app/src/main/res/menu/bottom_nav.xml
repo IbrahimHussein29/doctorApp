@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:title="Home" android:id="@+id/home" android:icon="@drawable/google" />
+    <item android:title="Home" android:id="@+id/home1" android:icon="@drawable/facebook" />
+    <item android:title="Home" android:id="@+id/home2" android:icon="@drawable/facebook" />
+
+<!--    <item android:title="Appointment" android:id="@+id/appointment" android:icon="@drawable/ic_appointment"/>-->
+<!--    <item android:title="Messages"  android:id="@+id/messages" android:icon="@drawable/ic_messages"/>-->
+<!--    <item android:title="Profile" android:id="profile" android:icon="@drawable/ic_profile"/>-->
+</menu>
