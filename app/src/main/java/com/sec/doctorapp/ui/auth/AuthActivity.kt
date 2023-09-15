@@ -1,4 +1,4 @@
-package com.sec.doctorapp.auth
+package com.sec.doctorapp.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

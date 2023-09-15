@@ -1,11 +1,11 @@
-package com.sec.doctorapp
+package com.sec.doctorapp.ui.main
 
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import com.sec.doctorapp.R
 import com.sec.doctorapp.databinding.ActivityMainBinding
 
 
@@ -21,15 +21,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupWithNavController(binding.bottomNavView, navController)
-
-//        finish()
-
-//        startActivity(Intent(this, AuthActivity::class.java))
-
 
     }
 }

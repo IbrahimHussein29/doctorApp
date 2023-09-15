@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sec.doctorapp.HomeFragment"
+        android:name="com.sec.doctorapp.ui.main.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -22,17 +22,17 @@
     </fragment>
     <fragment
         android:id="@+id/appointmentFragment"
-        android:name="com.sec.doctorapp.AppointmentFragment"
+        android:name="com.sec.doctorapp.ui.main.AppointmentFragment"
         android:label="fragment_appointment"
         tools:layout="@layout/fragment_appointment" />
     <fragment
         android:id="@+id/messagesFragment"
-        android:name="com.sec.doctorapp.MessagesFragment"
+        android:name="com.sec.doctorapp.ui.main.MessagesFragment"
         android:label="fragment_messages"
         tools:layout="@layout/fragment_messages" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.sec.doctorapp.ProfileFragment"
+        android:name="com.sec.doctorapp.ui.main.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
