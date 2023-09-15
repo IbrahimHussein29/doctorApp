@@ -1,4 +1,4 @@
-package com.sec.doctorapp.auth
+package com.sec.doctorapp.ui.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater

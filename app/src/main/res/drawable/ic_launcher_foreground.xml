@@ -3,10 +3,17 @@
     android:height="108dp"
     android:viewportWidth="254"
     android:viewportHeight="243">
+<<<<<<< HEAD
   <group android:scaleX="0.4"
       android:scaleY="0.38267717"
       android:translateX="76.2"
       android:translateY="75.00472">
+=======
+  <group android:scaleX="0.45"
+      android:scaleY="0.4305118"
+      android:translateX="69.85"
+      android:translateY="69.19282">
+>>>>>>> origin/master
     <path
         android:pathData="M127,68m-67.5,0a67.5,67.5 0,1 1,135 0a67.5,67.5 0,1 1,-135 0"
         android:fillColor="#C0F9F0"/>
