@@ -33,7 +33,7 @@ class SignInFragment : Fragment() {
         binding.textSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
         }
-        binding.btnSingIn.setOnClickListener {
+        binding.btnSignIn.setOnClickListener {
             redirectToMainScreen()
         }
 //

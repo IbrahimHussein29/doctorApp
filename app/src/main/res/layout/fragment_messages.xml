@@ -1,14 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MessagesFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.main.messages.MessagesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Messages" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:orientation="vertical">
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/page_title_margin_top"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/back_vector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_vector_back"
+
+            />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/open_sans_bold"
+            android:text="@string/message_title"
+            android:textAlignment="center"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/text_large" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/search_doctor_text_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:background="@drawable/rounded_input"
+        android:drawableEnd="@drawable/ic_voice_search"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/drawable_padding"
+        android:fontFamily="@font/open_sans"
+        android:hint="@string/search_a_doctor_hint"
+        android:inputType="text"
+        android:paddingHorizontal="@dimen/padding_edit_text_large"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/color_gray"
+        android:textSize="@dimen/text_small"
+
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/active_now_margin"
+            android:text="@string/active_now_text"
+            android:textSize="@dimen/active_text_size"
+            android:fontFamily="@font/open_sans_bold"
+            android:textColor="@color/black"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/online_dr_recycler_view"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/active_viewpager_margin"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/messages_margin_top"
+            android:text="@string/messages_text"
+            android:textSize="@dimen/active_text_size"
+            android:fontFamily="@font/open_sans_bold"
+            android:textColor="@color/black"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/messages_card_margin_top"
+            android:id="@+id/messages_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

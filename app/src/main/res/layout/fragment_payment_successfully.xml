@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.appointment.PaymentSuccessfullyFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/payment_success_margin_top"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="@dimen/success_size"
+            android:layout_height="@dimen/success_size"
+            android:background="@drawable/back_vector_background"
+            android:backgroundTint="@color/secondary"
+            android:src="@drawable/ic_correct"
+            android:padding="@dimen/success_padding"
+            />
+        <TextView
+            android:layout_marginTop="@dimen/congrats_margin_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/congratulations_text"
+            android:textSize="@dimen/congrats_size"
+            android:textColor="@color/color_primary"
+            android:fontFamily="@font/open_sans_bold"
+            android:textAlignment="center"
+            />
+        <TextView
+            android:layout_marginTop="@dimen/payment_msg_margin_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_success_text"
+            android:textAlignment="center"
+            android:textSize="@dimen/Payment_size"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans_semibold"
+            />
+
+
+     <com.google.android.material.button.MaterialButton
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:id="@+id/btn_back"
+         android:layout_marginTop="@dimen/button_back_margin_top"
+         android:fontFamily="@font/open_sans_bold"
+         android:paddingVertical="10dp"
+         android:text="@string/back_text"
+         android:textAllCaps="false"
+         android:textColor="@color/white"
+         android:textSize="@dimen/text_medium"
+         app:backgroundTint="@color/color_primary"
+         app:cornerRadius="@dimen/button_corner"
+        android:gravity="center"
+         android:layout_marginHorizontal="@dimen/back_btn_margin"
+         />
+   </LinearLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>

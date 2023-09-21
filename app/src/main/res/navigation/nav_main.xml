@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sec.doctorapp.ui.main.HomeFragment"
+        android:name="com.sec.doctorapp.ui.main.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -19,20 +19,160 @@
         <action
             android:id="@+id/action_homeFragment_to_appointmentFragment"
             app:destination="@id/appointmentFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_appointmentDetailsFragment"
+            app:destination="@id/appointmentDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/appointmentFragment"
-        android:name="com.sec.doctorapp.ui.main.AppointmentFragment"
+        android:name="com.sec.doctorapp.ui.main.appointment.AppointmentFragment"
         android:label="fragment_appointment"
-        tools:layout="@layout/fragment_appointment" />
+        tools:layout="@layout/fragment_appointment" >
+        <action
+            android:id="@+id/action_appointmentFragment_to_appointmentDetailsFragment"
+            app:destination="@id/appointmentDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/messagesFragment"
-        android:name="com.sec.doctorapp.ui.main.MessagesFragment"
+        android:name="com.sec.doctorapp.ui.main.messages.MessagesFragment"
         android:label="fragment_messages"
-        tools:layout="@layout/fragment_messages" />
+        tools:layout="@layout/fragment_messages" >
+        <action
+            android:id="@+id/action_messagesFragment_to_messageDetailsFragment"
+            app:destination="@id/messageDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.sec.doctorapp.ui.main.ProfileFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_profileHistoryFragment"
+            app:destination="@id/profileHistoryFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_profilePersonalDetailsFragment"
+            app:destination="@id/profilePersonalDetailsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_profileLocationFragment"
+            app:destination="@id/profileLocationFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_profilePaymentMethodFragment"
+            app:destination="@id/profilePaymentMethodFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_profileHelpFragment"
+            app:destination="@id/profileHelpFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_profileSettingsFragment"
+            app:destination="@id/profileSettingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentDetailsFragment"
+        android:name="com.sec.doctorapp.ui.main.appointment.details.AppointmentDetailsFragment"
+        android:label="fragment_appointment_details"
+        tools:layout="@layout/fragment_appointment_details" >
+        <action
+            android:id="@+id/action_appointmentDetailsFragment_to_appointmentPaymentFragment"
+            app:destination="@id/appointmentPaymentFragment" />
+        <action
+            android:id="@+id/action_appointmentDetailsFragment_to_callingFragment"
+            app:destination="@id/callingFragment" />
+        <action
+            android:id="@+id/action_appointmentDetailsFragment_to_videoCallFragment"
+            app:destination="@id/videoCallFragment" />
+        <action
+            android:id="@+id/action_appointmentDetailsFragment_to_messageDetailsFragment"
+            app:destination="@id/messageDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentPaymentFragment"
+        android:name="com.sec.doctorapp.ui.main.appointment.AppointmentPaymentFragment"
+        android:label="fragment_appointment_payment"
+        tools:layout="@layout/fragment_appointment_payment" >
+        <action
+            android:id="@+id/action_appointmentPaymentFragment_to_paymentSuccessfullyFragment"
+            app:destination="@id/paymentSuccessfullyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentSuccessfullyFragment"
+        android:name="com.sec.doctorapp.ui.main.appointment.PaymentSuccessfullyFragment"
+        android:label="fragment_payment_successfully"
+        tools:layout="@layout/fragment_payment_successfully" >
+        <action
+            android:id="@+id/action_paymentSuccessfullyFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileHistoryFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.ProfileHistoryFragment"
+        android:label="fragment_profile_history"
+        tools:layout="@layout/fragment_profile_history" />
+    <fragment
+        android:id="@+id/profilePersonalDetailsFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.ProfilePersonalDetailsFragment"
+        android:label="fragment_profile_personal_details"
+        tools:layout="@layout/fragment_profile_personal_details" />
+    <fragment
+        android:id="@+id/profileLocationFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.ProfileLocationFragment"
+        android:label="fragment_profile_location"
+        tools:layout="@layout/fragment_profile_location" />
+    <fragment
+        android:id="@+id/profilePaymentMethodFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.ProfilePaymentMethodFragment"
+        android:label="fragment_profile_payment_method"
+        tools:layout="@layout/fragment_profile_payment_method" />
+    <fragment
+        android:id="@+id/profileHelpFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.ProfileHelpFragment"
+        android:label="fragment_profile_help"
+        tools:layout="@layout/fragment_profile_help" />
+    <fragment
+        android:id="@+id/profileSettingsFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.ProfileSettingsFragment"
+        android:label="fragment_profile_settings"
+        tools:layout="@layout/fragment_profile_settings" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.sec.doctorapp.ui.main.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/messageDetailsFragment"
+        android:name="com.sec.doctorapp.ui.main.messages.chatting.MessageDetailsFragment"
+        android:label="fragment_message_details"
+        tools:layout="@layout/fragment_message_details" >
+        <action
+            android:id="@+id/action_messageDetailsFragment_to_callingFragment"
+            app:destination="@id/callingFragment" />
+        <action
+            android:id="@+id/action_messageDetailsFragment_to_videoCallFragment"
+            app:destination="@id/videoCallFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/callingFragment"
+        android:name="com.sec.doctorapp.ui.main.messages.CallingFragment"
+        android:label="fragment_calling"
+        tools:layout="@layout/fragment_calling" >
+        <action
+            android:id="@+id/action_callingFragment_to_videoCallFragment"
+            app:destination="@id/videoCallFragment" />
+        <action
+            android:id="@+id/action_callingFragment_to_messageDetailsFragment"
+            app:destination="@id/messageDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoCallFragment"
+        android:name="com.sec.doctorapp.ui.main.messages.VideoCallFragment"
+        android:label="fragment_video_call"
+        tools:layout="@layout/fragment_video_call" >
+        <action
+            android:id="@+id/action_videoCallFragment_to_callingFragment"
+            app:destination="@id/callingFragment" />
+        <action
+            android:id="@+id/action_videoCallFragment_to_messageDetailsFragment"
+            app:destination="@id/messageDetailsFragment" />
+    </fragment>
 </navigation>

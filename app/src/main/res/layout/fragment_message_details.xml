@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.messages.chatting.MessageDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical">
+
+
+        <ImageView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/back_vector_margin_start"
+            android:layout_marginTop="@dimen/back_vector_margin_top"
+            android:id="@+id/back_vector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_vector_back"
+
+            />
+
+        <TextView
+            android:id="@+id/dr_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/page_title_margin_top"
+            android:fontFamily="@font/open_sans_bold"
+
+            android:textAlignment="center"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintStart_toEndOf="@id/back_vector"
+            app:layout_constraintEnd_toStartOf="@id/phone_call_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Dr.Upul" />
+
+        <ImageView
+            android:id="@+id/phone_call_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/phone_call_margin_top"
+            android:layout_marginEnd="@dimen/phone_call_margin_end"
+            android:background="@drawable/circular_background"
+            android:padding="6dp"
+            android:src="@drawable/ic_phone"
+            app:layout_constraintEnd_toStartOf="@id/video_call_img"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/video_call_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/phone_call_margin_top"
+            android:layout_marginEnd="@dimen/video_call_margin_end"
+            android:background="@drawable/circular_background"
+            android:padding="6dp"
+            android:src="@drawable/ic_video"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatting_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/message_card_margin_horizantal"
+            android:layout_marginTop="@dimen/message_card_margin_top"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dr_name" />
+
+        <TextView
+            android:id="@+id/user_message_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/page_title_margin_top"
+            android:layout_marginEnd="@dimen/message_card_margin_horizantal"
+            android:background="@drawable/user_message_shape"
+            android:fontFamily="@font/open_sans"
+            android:paddingHorizontal="@dimen/chat_padding_horizontal"
+            android:paddingVertical="@dimen/chat_padding_vertical"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="@dimen/message_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chatting_recycler_view"
+            tools:text="Rorem ipsum dolor sit  adipiscing elit." />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/message_input_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/message_input_margin_start"
+            android:layout_marginEnd="@dimen/message_input_margin_end"
+            android:layout_marginBottom="@dimen/text_input_margin_bottom"
+            android:background="@drawable/rounded_input"
+            android:drawableStart="@drawable/ic_emoji"
+            android:drawableEnd="@drawable/ic_camera"
+            android:drawablePadding="@dimen/message_drawable_padding"
+            android:hint="@string/write_hire_hint"
+            android:padding="18dp"
+            android:textColorHint="@color/color_gray"
+            android:textSize="@dimen/message_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/send_msg_img"
+            app:layout_constraintStart_toStartOf="parent"
+
+            />
+
+        <ImageView
+            android:id="@+id/send_msg_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/send_message_margin_end"
+            android:layout_marginBottom="@dimen/text_input_margin_bottom"
+            android:background="@drawable/circular_image"
+            android:padding="@dimen/send_padding"
+            android:src="@drawable/ic_send"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+           />
+
+        <ImageView
+            android:id="@+id/voice_msg_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/send_message_margin_end"
+            android:layout_marginBottom="@dimen/text_input_margin_bottom"
+            android:background="@drawable/circular_image"
+            android:padding="@dimen/send_padding"
+            android:src="@drawable/ic_voice"
+            app:layout_constraintBottom_toTopOf="@id/send_msg_img"
+            app:layout_constraintEnd_toEndOf="parent"
+           />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

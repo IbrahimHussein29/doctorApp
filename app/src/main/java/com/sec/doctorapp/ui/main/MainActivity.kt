@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private val navHostFragment by lazy {
         supportFragmentManager.findFragmentById(R.id.fragment_container_view_main) as NavHostFragment
     }
+
     private val navController by lazy {
         navHostFragment.navController
     }
@@ -25,5 +26,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupWithNavController(binding.bottomNavView, navController)
 
+
     }
+
+
 }

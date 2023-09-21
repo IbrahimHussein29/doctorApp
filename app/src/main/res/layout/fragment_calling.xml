@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.messages.CallingFragment"
+    android:background="#7BC1B7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/calling_margin_top"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/calling_dr_img"
+            android:layout_width="@dimen/calling_img_size"
+            android:layout_height="@dimen/calling_img_size"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/white"
+            android:src="@drawable/calling"
+
+            />
+        <TextView
+            android:id="@+id/call_dr_name"
+            android:layout_marginTop="@dimen/page_title_margin_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dr.Upal"
+            android:textAlignment="center"
+            android:textSize="@dimen/call_dr_name_size"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans_bold"
+            />
+
+        <TextView
+
+            android:layout_marginTop="@dimen/page_title_margin_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:text="Ringing"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/call_margin_bottom"
+        >
+    <ImageView
+        android:id="@+id/video_call_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:background="@drawable/circular_image_white"
+        android:layout_gravity="bottom"
+        android:src="@drawable/ic_video"
+        android:layout_marginEnd="@dimen/call_margin_end"
+
+
+
+        />
+        <ImageView
+            android:id="@+id/end_call_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:background="@drawable/circular_image_red"
+            android:layout_gravity="bottom"
+            android:src="@drawable/ic_phone_call_white"
+            android:layout_marginEnd="@dimen/call_margin_end"
+
+
+            />
+        <ImageView
+            android:id="@+id/voice_call_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:background="@drawable/circular_image_white"
+            android:layout_gravity="bottom"
+            android:src="@drawable/ic_voice_note"
+
+            />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

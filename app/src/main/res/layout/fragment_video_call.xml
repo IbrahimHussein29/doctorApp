@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dr_video_img"
+    tools:context=".ui.main.messages.CallingFragment">
+
+
+    <TextView
+        android:id="@+id/video_dr_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dr_name_margin_start"
+        android:layout_marginTop="@dimen/page_title_margin_top"
+
+        android:layout_marginBottom="@dimen/dr_name_margin_bottom"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="@string/dr_pawan"
+        android:textColor="@color/black"
+        android:textSize="@dimen/call_dr_name_size"
+        app:layout_constraintBottom_toTopOf="@id/calling_layout"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/video_dr_name"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/video_time_margin_top"
+        android:layout_marginStart="@dimen/dr_name_margin_start"
+
+        >
+        <ImageView
+            android:id="@+id/online_status_img"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_online"
+        android:layout_marginEnd="@dimen/margin_small"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/open_sans"
+            android:text="10.00"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_small"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/calling_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/call_margin_bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <ImageView
+            android:id="@+id/voice_call_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/circular_image_white"
+            android:padding="18dp"
+            android:src="@drawable/ic_voice_note"
+            android:layout_marginEnd="@dimen/call_margin_end"
+
+            />
+
+        <ImageView
+            android:id="@+id/end_vide_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="@dimen/call_margin_end"
+            android:background="@drawable/circular_image"
+            android:padding="18dp"
+            android:src="@drawable/ic_video_white"
+
+
+            />
+
+        <ImageView
+            android:id="@+id/end_call_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="@dimen/call_margin_end"
+            android:background="@drawable/circular_image_red"
+            android:padding="18dp"
+            android:src="@drawable/ic_phone_call_white"
+
+
+            />
+
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
