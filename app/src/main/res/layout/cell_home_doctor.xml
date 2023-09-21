@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dr_card_margin"
+    android:layout_marginBottom="@dimen/layout_margin_bottom"
+    android:elevation="@dimen/card_corner_radius"
+
+
+    app:cardCornerRadius="@dimen/card_corner_radius">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/card_background_color"
+        >
+
+        <ImageView
+            android:id="@+id/doctor_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@drawable/ic_profile"
+
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26.75dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="@dimen/margin_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/doctor_image_view"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+
+            >
+
+            <LinearLayout
+                android:id="@+id/doctor_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/doctor_name_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Doctor Name"
+
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/favorite_doctor_image"
+                    android:layout_width="@dimen/back_vector_height"
+                    android:layout_height="@dimen/back_vector_height"
+                    android:textAlignment="textEnd"
+                    tools:src="@drawable/ic_love" />
+            </LinearLayout>
+
+            <TextView
+
+                android:id="@+id/doctor_description_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/open_sans"
+
+                android:textColor="@color/color_gray"
+                android:textSize="@dimen/text_description_size"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/doctor_name_layout"
+                tools:text="Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis." />
+
+            <LinearLayout
+                android:id="@+id/book_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/book_margin_top"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/doctor_description_text">
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/book_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:backgroundTint="@color/color_primary"
+                    android:fontFamily="@font/open_sans"
+                    android:paddingVertical="@dimen/book_padding_vertical"
+                    android:paddingStart="@dimen/book_padding_start"
+                    android:paddingEnd="@dimen/book_padding_end"
+                    android:text="@string/book_text"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/book_size"
+                    app:cornerRadius="@dimen/book_corner_radius" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="center|end">
+
+                    <ImageView
+
+                        android:id="@+id/favorite_doctor_rating"
+                        android:layout_width="@dimen/star_size"
+                        android:layout_height="@dimen/star_size"
+
+                        android:layout_marginEnd="@dimen/star_margin"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintEnd_toStartOf="@id/doctor_rating_text"
+                        app:layout_constraintTop_toTopOf="parent"
+
+
+                        />
+
+                    <TextView
+                        android:id="@+id/doctor_rating_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/book_size"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="5.0" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

@@ -13,24 +13,27 @@ import com.sec.doctorapp.R
 import com.sec.doctorapp.databinding.FragmentAppointmentDetailsBinding
 import com.sec.doctorapp.ui.main.appointment.details.date.DateAdapter
 import com.sec.doctorapp.ui.main.appointment.details.time.TimeAdapter
+import com.sec.doctorapp.ui.main.appointment.doctorCard.items.DoctorUiItem
 
 class AppointmentDetailsFragment : Fragment() {
-private lateinit var binding:FragmentAppointmentDetailsBinding
-private lateinit var appointmentDetailsViewModel: AppointmentDetailsViewModel
-private val timeAdapter by lazy {
-    TimeAdapter(arrayListOf())
-}
+    private lateinit var binding: FragmentAppointmentDetailsBinding
+    private lateinit var appointmentDetailsViewModel: AppointmentDetailsViewModel
+    private val timeAdapter by lazy {
+        TimeAdapter(arrayListOf())
+    }
 
     private val dateAdapter by lazy {
         DateAdapter(arrayListOf())
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        binding= FragmentAppointmentDetailsBinding.inflate(layoutInflater)
-        appointmentDetailsViewModel=ViewModelProvider(this)[AppointmentDetailsViewModel::class.java]
+        binding = FragmentAppointmentDetailsBinding.inflate(layoutInflater)
+        appointmentDetailsViewModel =
+            ViewModelProvider(this)[AppointmentDetailsViewModel::class.java]
         setClickableListeners()
         bindData()
         callData()
@@ -40,13 +43,13 @@ private val timeAdapter by lazy {
     }
 
     private fun observeData() {
-       binding.appointmentTimeRecyclerView.adapter=timeAdapter
-        binding.appointmentDateRecyclerView.adapter=dateAdapter
-        appointmentDetailsViewModel.dateData.observe(viewLifecycleOwner){
-            dateAdapter.items=it
+        binding.appointmentTimeRecyclerView.adapter = timeAdapter
+        binding.appointmentDateRecyclerView.adapter = dateAdapter
+        appointmentDetailsViewModel.dateData.observe(viewLifecycleOwner) {
+            dateAdapter.items = it
         }
-        appointmentDetailsViewModel.timeData.observe(viewLifecycleOwner){
-            timeAdapter.items=it
+        appointmentDetailsViewModel.timeData.observe(viewLifecycleOwner) {
+            timeAdapter.items = it
         }
     }
 
@@ -56,16 +59,17 @@ private val timeAdapter by lazy {
     }
 
     private fun bindData() {
-        val name=requireArguments().getString("name")
+        val name = requireArguments().getString("name")
 
-        val category=requireArguments().getString("category")
-        val price=requireArguments().getString("price")
-        val details=requireArguments().getString("details")
-        binding.detailsDoctorName.text=name
+        val category = requireArguments().getString("category")
+        val price = requireArguments().getString("price")
+        val details = requireArguments().getString("details")
+        val doctorItem = requireArguments().getSerializable("item") as DoctorUiItem
+        binding.detailsDoctorName.text = doctorItem.doctorName
 
-        binding.detailsDoctorCategory.text=category
-        binding.detailsDoctorAppointmentPrice.text=price
-        binding.detailsDoctorDescription.text=details
+        binding.detailsDoctorCategory.text = category
+        binding.detailsDoctorAppointmentPrice.text = price
+        binding.detailsDoctorDescription.text = details
 
     }
 
@@ -74,28 +78,39 @@ private val timeAdapter by lazy {
             findNavController().popBackStack()
         }
         binding.btnBookAppointment.setOnClickListener {
-            val price=requireArguments().getString("price")
-            val bundle= bundleOf("price" to price)
-            findNavController().navigate(R.id.action_appointmentDetailsFragment_to_appointmentPaymentFragment, bundle)
+            val price = requireArguments().getString("price")
+            val bundle = bundleOf("price" to price)
+            findNavController().navigate(
+                R.id.action_appointmentDetailsFragment_to_appointmentPaymentFragment,
+                bundle
+            )
         }
-        binding.detailsDoctorMessage.setOnClickListener(){
-            val name=requireArguments().getString("name")
-            val bundle= bundleOf("name" to name)
-            findNavController().navigate(R.id.action_appointmentDetailsFragment_to_messageDetailsFragment, bundle)
+        binding.detailsDoctorMessage.setOnClickListener() {
+            val name = requireArguments().getString("name")
+            val bundle = bundleOf("name" to name)
+            findNavController().navigate(
+                R.id.action_appointmentDetailsFragment_to_messageDetailsFragment,
+                bundle
+            )
         }
 
-        binding.detailsDoctorPhone.setOnClickListener(){
-            val name=requireArguments().getString("name")
-            val bundle= bundleOf("name" to name)
-            findNavController().navigate(R.id.action_appointmentDetailsFragment_to_callingFragment, bundle)
+        binding.detailsDoctorPhone.setOnClickListener() {
+            val name = requireArguments().getString("name")
+            val bundle = bundleOf("name" to name)
+            findNavController().navigate(
+                R.id.action_appointmentDetailsFragment_to_callingFragment,
+                bundle
+            )
         }
-        binding.detailsDoctorVideo.setOnClickListener(){
-            val name=requireArguments().getString("name")
-            val bundle= bundleOf("name" to name)
-            findNavController().navigate(R.id.action_appointmentDetailsFragment_to_videoCallFragment, bundle)
+        binding.detailsDoctorVideo.setOnClickListener() {
+            val name = requireArguments().getString("name")
+            val bundle = bundleOf("name" to name)
+            findNavController().navigate(
+                R.id.action_appointmentDetailsFragment_to_videoCallFragment,
+                bundle
+            )
         }
     }
-
 
 
 }

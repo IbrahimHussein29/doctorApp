@@ -6,28 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-
-
 import com.sec.doctorapp.R
-
 import com.sec.doctorapp.databinding.FragmentHomeBinding
-import com.sec.doctorapp.ui.main.home.categories.CategoriesAdapter
-import com.sec.doctorapp.ui.main.home.homeViewPager.HomeViewPagerAdapter
+import com.sec.doctorapp.ui.main.home.items.HomeUiItem
 
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var homeViewModel: HomeViewModel
 
-    private val viewPagerAdapter by lazy {
-        HomeViewPagerAdapter(arrayListOf())
+
+    private val homeAdapter by lazy {
+        HomeAdapter(arrayListOf()) {
+            handleItemClicked(it)
+        }
     }
-    private val categoriesAdapter by lazy{
-        CategoriesAdapter(arrayListOf())
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,55 +41,49 @@ class HomeFragment : Fragment() {
     }
 
 
-    private fun doctorCardBinding() {
-        val name = getString(R.string.dr_pawan)
-        val details = getString(R.string.jorem_ipsum)
-        val price="$120.00"
-        val category="Denteeth"
-        binding.doctorNameText.text = name
-        binding.doctorDescriptionText.text = details
-      binding.doctorImageView.setImageResource(R.drawable.doctor1)
-
-        val bundle= bundleOf( "name" to name, "category" to category,"price" to price, "details" to details )
-        binding.bookBtn.setOnClickListener() {
-            findNavController().navigate(R.id.action_homeFragment_to_appointmentDetailsFragment, bundle)
-        }
-
-    }
-
     private fun bindData() {
-        val viewpager = binding.viewPager
-        val dotsIndicator = binding.wormDotsIndicator
-        dotsIndicator.attachTo(viewpager)
-        binding.allDoctorsSeeAll.setOnClickListener() {
-            findNavController().navigate(R.id.action_homeFragment_to_appointmentFragment)
-        }
-        binding.btnNotification.setOnClickListener(){
+        binding.recyclerView.adapter = homeAdapter
+        binding.btnNotification.setOnClickListener() {
             findNavController().navigate(R.id.action_homeFragment_to_notificationFragment)
         }
 
-        doctorCardBinding()
 
     }
 
     private fun observeData() {
-        binding.viewPager.adapter = viewPagerAdapter
-        binding.categoriesRecyclerView.adapter=categoriesAdapter
-        homeViewModel.sliderData.observe(viewLifecycleOwner) {
-            viewPagerAdapter.items = it
-            viewPagerAdapter.notifyDataSetChanged()
-
-        }
-        homeViewModel.categoryData.observe(viewLifecycleOwner){
-            categoriesAdapter.items=it
-            categoriesAdapter.notifyDataSetChanged()
+        homeViewModel.homeUiData.observe(viewLifecycleOwner) {
+            homeAdapter.items = it
+            homeAdapter.notifyDataSetChanged()
         }
     }
 
     private fun callData() {
-        homeViewModel.generateSliderDummyData()
-        homeViewModel.generateDummyCategoriesData()
+        homeViewModel.generateHomeUiItems()
     }
 
+    private fun handleItemClicked(item: HomeUiItem) {
+        when (item) {
+            is HomeUiItem.HomeTitleItem -> {
+                handleSeeAllClick(item)
+            }
 
+            is HomeUiItem.HomeDoctorItem -> {
+                openBookScreen(item)
+            }
+            else -> {}
+        }
+    }
+
+    private fun openBookScreen(item: HomeUiItem.HomeDoctorItem) {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_appointmentDetailsFragment,
+            bundleOf("item" to item.item)
+        )
+    }
+
+    private fun handleSeeAllClick(item: HomeUiItem.HomeTitleItem) {
+        if (item.action == HomeUiItem.ACTION_DOCTORS) {
+            findNavController().navigate(R.id.action_homeFragment_to_appointmentFragment)
+        }
+    }
 }

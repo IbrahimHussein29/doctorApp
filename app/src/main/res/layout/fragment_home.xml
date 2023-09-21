@@ -1,366 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="20dp"
     tools:context=".ui.main.home.HomeFragment">
 
+
     <LinearLayout
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/home_margin_horizontal"
-        android:orientation="vertical">
+        android:layout_marginTop="@dimen/home_margin_top"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/home_margin_top"
-            android:gravity="center"
+            android:layout_weight="0.5"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
-
-            <LinearLayout
-
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/home_profile_img"
-                    android:layout_width="@dimen/home_profile_img_size"
-                    android:layout_height="@dimen/home_profile_img_size"
-                    android:src="@drawable/profile_img" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/welcome_margin_start"
-                    android:orientation="vertical"
-
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans"
-                        android:text="@string/hi_welcome_back_text"
-                        android:textColor="@color/color_gray"
-                        android:textSize="@dimen/welcome_text_size" />
-
-                    <TextView
-                        android:id="@+id/text_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/open_sans_semibold"
-                        android:letterSpacing="0.1"
-                        android:text="@string/john_doe_william"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_small" />
-
-                </LinearLayout>
-
-            </LinearLayout>
 
             <ImageView
-                android:id="@+id/btn_notification"
-                android:layout_width="@dimen/notification_size"
-                android:layout_height="@dimen/notification_size"
-                android:src="@drawable/icon_notification" />
+                android:id="@+id/home_profile_img"
+                android:layout_width="@dimen/home_profile_img_size"
+                android:layout_height="@dimen/home_profile_img_size"
+                android:src="@drawable/profile_img" />
 
-        </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/home_search_doctor_text_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_large"
-            android:background="@drawable/rounded_input"
-            android:drawableStart="@drawable/ic_search"
-            android:drawableEnd="@drawable/ic_voice_search"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:fontFamily="@font/open_sans"
-            android:hint="@string/search_a_doctor_hint"
-            android:inputType="text"
-            android:paddingHorizontal="@dimen/padding_edit_text_large"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/color_gray"
-            android:textSize="@dimen/text_small"
-
-            />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/view_pager_margin_top" />
-
-        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
-            android:id="@+id/worm_dots_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/dots_margin_top"
-            app:dotsClickable="true"
-            app:dotsColor="@color/color_primary"
-            app:dotsCornerRadius="5dp"
-            app:dotsSize="10dp"
-            app:dotsSpacing="7dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/category_margin_top"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/open_sans_semibold"
-                android:text="@string/categories_text"
-                android:textAlignment="textStart"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_medium"
-                app:layout_constraintTop_toTopOf="parent"
-
-
-                />
-
-
-            <TextView
-                android:id="@+id/categories_see_all"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/see_all"
-                android:textAlignment="textEnd"
-                android:textColor="@color/black"
-                android:textSize="@dimen/see_all_size"
-                app:layout_constraintTop_toTopOf="parent"
-
-                />
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/categories_recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/See_all_margin_large"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            />
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/category_margin_top"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/open_sans_semibold"
-                android:text="@string/all_doctors"
-                android:textAlignment="textStart"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_medium"
-                app:layout_constraintTop_toTopOf="parent"
-
-
-                />
-
-
-            <TextView
-                android:id="@+id/all_doctors_see_all"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:fontFamily="@font/open_sans"
-                android:text="@string/see_all"
-                android:textAlignment="textEnd"
-                android:textColor="@color/black"
-                android:textSize="@dimen/see_all_size"
-                app:layout_constraintTop_toTopOf="parent"
-
-                />
-
-        </LinearLayout>
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dr_card_margin"
-            android:elevation="@dimen/card_corner_radius"
-            app:cardCornerRadius="@dimen/card_corner_radius"
-            android:layout_marginBottom="@dimen/layout_margin_bottom"
-
-
-            >
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/card_background_color"
-
+                android:layout_marginStart="@dimen/welcome_margin_start"
+                android:orientation="vertical"
 
                 >
 
-                <ImageView
-                    android:id="@+id/doctor_image_view"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:text="@string/hi_welcome_back_text"
+                    android:textColor="@color/color_gray"
+                    android:textSize="@dimen/welcome_text_size" />
 
-                    android:textAlignment="textStart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:src="@drawable/ic_profile"
-
-                    />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/text_name"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="26.75dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="@dimen/margin_small"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/doctor_image_view"
-                    app:layout_constraintTop_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:letterSpacing="0.1"
+                    android:text="@string/john_doe_william"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small" />
 
+            </LinearLayout>
 
-                    >
+        </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/doctor_name_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:id="@+id/doctor_name_text"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:fontFamily="@font/open_sans_semibold"
-                            android:textAlignment="textStart"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_small"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:text="Doctor Name"
-
-                            />
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/favorite_doctor_image"
-                            android:layout_width="@dimen/back_vector_height"
-                            android:layout_height="@dimen/back_vector_height"
-                            android:textAlignment="textEnd"
-                            tools:src="@drawable/ic_love" />
-                    </LinearLayout>
-
-                    <TextView
-
-                        android:id="@+id/doctor_description_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/open_sans"
-
-                        android:textColor="@color/color_gray"
-                        android:textSize="@dimen/text_description_size"
-
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/doctor_name_layout"
-                        tools:text="Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac  mattis." />
-
-                    <LinearLayout
-                        android:id="@+id/book_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/book_margin_top"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/doctor_description_text">
-
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/book_btn"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:backgroundTint="@color/color_primary"
-                            android:fontFamily="@font/open_sans"
-                            android:paddingVertical="@dimen/book_padding_vertical"
-                            android:paddingStart="@dimen/book_padding_start"
-                            android:paddingEnd="@dimen/book_padding_end"
-                            android:text="@string/book_text"
-                            android:textAllCaps="false"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/book_size"
-                            app:cornerRadius="@dimen/book_corner_radius" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.5"
-                            android:gravity="center|end">
-
-                            <ImageView
-
-                                android:id="@+id/favorite_doctor_rating"
-                                android:layout_width="@dimen/star_size"
-                                android:layout_height="@dimen/star_size"
-
-                                android:layout_marginEnd="@dimen/star_margin"
-                                android:src="@drawable/ic_star"
-                                app:layout_constraintEnd_toStartOf="@id/doctor_rating_text"
-                                app:layout_constraintTop_toTopOf="parent"
-
-
-                                />
-
-                            <TextView
-                                android:id="@+id/doctor_rating_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/open_sans_semibold"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/book_size"
-                                app:layout_constraintEnd_toEndOf="parent"
-
-                                app:layout_constraintTop_toTopOf="parent"
-                                tools:text="5.0" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
+        <ImageView
+            android:id="@+id/btn_notification"
+            android:layout_width="@dimen/notification_size"
+            android:layout_height="@dimen/notification_size"
+            android:src="@drawable/icon_notification" />
 
     </LinearLayout>
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/search_view_doctor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:background="@drawable/rounded_input"
+        android:drawableStart="@drawable/ic_search"
+        android:drawableEnd="@drawable/ic_voice_search"
+        android:drawablePadding="@dimen/drawable_padding"
+        android:fontFamily="@font/open_sans"
+        android:hint="@string/search_a_doctor_hint"
+        android:inputType="text"
+        android:paddingHorizontal="@dimen/padding_edit_text_large"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/color_gray"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-</androidx.core.widget.NestedScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingVertical="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_view_doctor" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
