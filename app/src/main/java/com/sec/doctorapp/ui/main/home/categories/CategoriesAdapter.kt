@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sec.doctorapp.databinding.CategoriesCardItemBinding
-import com.sec.doctorapp.ui.main.home.categories.items.CategoriesUiItem
 
 class CategoriesAdapter(var items: ArrayList<String>):RecyclerView.Adapter<CategoriesVH>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesVH {

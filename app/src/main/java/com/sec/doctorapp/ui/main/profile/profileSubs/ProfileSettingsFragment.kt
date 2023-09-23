@@ -1,4 +1,4 @@
-package com.sec.doctorapp.ui.main.profile
+package com.sec.doctorapp.ui.main.profile.profileSubs
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.sec.doctorapp.R
 
 
-class ProfilePaymentMethodFragment : Fragment() {
+class ProfileSettingsFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -16,8 +16,7 @@ class ProfilePaymentMethodFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_payment_method, container, false)
+        return inflater.inflate(R.layout.fragment_profile_settings, container, false)
     }
-
 
 }

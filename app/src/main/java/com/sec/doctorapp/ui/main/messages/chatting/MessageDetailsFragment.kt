@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.sec.doctorapp.R
 import com.sec.doctorapp.databinding.FragmentMessageDetailsBinding
+import com.sec.doctorapp.ui.main.appointment.doctorCard.items.DoctorUiItem
 
 
 class MessageDetailsFragment : Fragment() {
@@ -45,9 +46,8 @@ private val adapter by lazy {
             findNavController().popBackStack()
         }
         binding.userMessageTextView.text=binding.messageInputText.text
-        val name=requireArguments().getString("name")
-        binding.drName.text=name
-
+        val doctorItem = requireArguments().getSerializable("item") as DoctorUiItem
+        binding.drName.text=doctorItem.doctorName
         binding.sendMsgImg.setOnClickListener(){
             val inputText=binding.messageInputText.text
             binding.userMessageTextView.text=inputText

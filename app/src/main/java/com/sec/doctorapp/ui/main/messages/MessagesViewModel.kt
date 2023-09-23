@@ -5,17 +5,38 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sec.doctorapp.R
 import com.sec.doctorapp.ui.main.messages.doctorMessages.items.DoctorMessagesUiItem
+import com.sec.doctorapp.ui.main.messages.items.MessagesUiItem
 import com.sec.doctorapp.ui.main.messages.onlineDoctors.items.OnlineDoctorsUiItem
 
 class MessagesViewModel:ViewModel() {
-    private var _doctorMessagesData = MutableLiveData<ArrayList<DoctorMessagesUiItem>>()
-    val doctorMessagesData: LiveData<ArrayList<DoctorMessagesUiItem>> = _doctorMessagesData
+    private var _messagesData = MutableLiveData<ArrayList<MessagesUiItem>>()
+    val messagesData: LiveData<ArrayList<MessagesUiItem>> = _messagesData
 
-    private var _onlineDoctorData = MutableLiveData<ArrayList<OnlineDoctorsUiItem>>()
-    val onlineDoctorData: LiveData<ArrayList<OnlineDoctorsUiItem>> = _onlineDoctorData
+  fun generateMessagesData(){
+      val items=ArrayList<MessagesUiItem>()
 
-    fun generateDummyDoctorMessagesData(){
-        val items= arrayListOf<DoctorMessagesUiItem>(
+      items.add(
+          MessagesUiItem.MessagesTitle("Active Now")
+      )
+
+      items.add(
+          MessagesUiItem.OnlineDoctor(generateOnlineDoctorsData())
+
+      )
+      items.add(
+          MessagesUiItem.MessagesTitle("Messages")
+      )
+      items.add(
+          MessagesUiItem.DoctorMessages(generateDoctorMessagesData())
+      )
+      _messagesData.value=items
+
+
+
+  }
+
+    private fun generateDoctorMessagesData(): ArrayList<DoctorMessagesUiItem>{
+        return arrayListOf(
             DoctorMessagesUiItem(
                 doctorImg = R.drawable.online_dr_1,
                 doctorName = "Dr.Upul",
@@ -63,13 +84,13 @@ class MessagesViewModel:ViewModel() {
 
         )
         )
-        _doctorMessagesData.value=items
+
     }
 
 
 
-    fun generateDummyOnlineDoctorsData(){
-        val items= arrayListOf<OnlineDoctorsUiItem>(
+    fun generateOnlineDoctorsData():ArrayList<OnlineDoctorsUiItem>{
+       return arrayListOf(
             OnlineDoctorsUiItem(
                 doctorImg = R.drawable.online_dr_1
 
@@ -93,6 +114,6 @@ class MessagesViewModel:ViewModel() {
             )
 
         )
-        _onlineDoctorData.value=items
+
     }
 }

@@ -1,4 +1,4 @@
-package com.sec.doctorapp.ui.main.profile
+package com.sec.doctorapp.ui.main.profile.profileSubs
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

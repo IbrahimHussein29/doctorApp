@@ -1,54 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.main.messages.MessagesFragment">
+    tools:context=".ui.main.messages.MessagesFragment"
+    android:paddingHorizontal="@dimen/page_horizontal_padding"
+   >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+
+        android:id="@+id/back_vector"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_vector_back"
+        app:layout_constraintBottom_toBottomOf="@id/page_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <TextView
         android:layout_marginTop="@dimen/page_title_margin_top"
-        android:gravity="center"
-        android:orientation="horizontal"
-        >
+        android:id="@+id/page_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="@string/message_title"
+        android:textAlignment="center"
+        android:textColor="@color/color_primary"
+        android:textSize="@dimen/text_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/back_vector"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_vector_back"
-
-            />
-
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:fontFamily="@font/open_sans_bold"
-            android:text="@string/message_title"
-            android:textAlignment="center"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_large" />
-    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/search_doctor_text_edit"
+        android:id="@+id/search_view_doctor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_large"
         android:background="@drawable/rounded_input"
-        android:drawableEnd="@drawable/ic_voice_search"
         android:drawableStart="@drawable/ic_search"
+        android:drawableEnd="@drawable/ic_voice_search"
         android:drawablePadding="@dimen/drawable_padding"
         android:fontFamily="@font/open_sans"
         android:hint="@string/search_a_doctor_hint"
@@ -58,43 +53,17 @@
         android:textColor="@color/black"
         android:textColorHint="@color/color_gray"
         android:textSize="@dimen/text_small"
+        app:layout_constraintTop_toBottomOf="@id/page_title" />
 
-        />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/active_now_margin"
-            android:text="@string/active_now_text"
-            android:textSize="@dimen/active_text_size"
-            android:fontFamily="@font/open_sans_bold"
-            android:textColor="@color/black"
-            />
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/online_dr_recycler_view"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/active_viewpager_margin"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
 
-            />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_view_doctor" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/messages_margin_top"
-            android:text="@string/messages_text"
-            android:textSize="@dimen/active_text_size"
-            android:fontFamily="@font/open_sans_bold"
-            android:textColor="@color/black"
-            />
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="@dimen/messages_card_margin_top"
-            android:id="@+id/messages_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            />
-    </LinearLayout>
-
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

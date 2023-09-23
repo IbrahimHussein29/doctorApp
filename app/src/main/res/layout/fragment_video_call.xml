@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/dr_video_img"
-    tools:context=".ui.main.messages.CallingFragment">
+    tools:context=".ui.main.messages.calling.CallingFragment">
 
 
     <TextView

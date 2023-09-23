@@ -9,7 +9,7 @@ import com.sec.doctorapp.ui.main.messages.doctorMessages.items.DoctorMessagesUiI
 
 class DoctorMessagesAdapter(
     var items:ArrayList<DoctorMessagesUiItem>,
-    var onItemClicked: (item: DoctorMessagesUiItem) -> Unit
+
 ):RecyclerView.Adapter<DoctorMessagesVH>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoctorMessagesVH {
         val binding=MessagesCardItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,8 +23,7 @@ class DoctorMessagesAdapter(
     override fun onBindViewHolder(holder: DoctorMessagesVH, position: Int) {
         val item=items[position]
        holder.bind(item)
-        holder.binding.messageCard.setOnClickListener() {
-            onItemClicked(item)
-        }
+
+
     }
 }

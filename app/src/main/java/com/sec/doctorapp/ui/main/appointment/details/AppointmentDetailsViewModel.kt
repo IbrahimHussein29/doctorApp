@@ -3,42 +3,64 @@ package com.sec.doctorapp.ui.main.appointment.details
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sec.doctorapp.ui.main.appointment.details.date.items.DateUiItem
-import com.sec.doctorapp.ui.main.appointment.details.time.items.TimeUiItem
+import com.sec.doctorapp.R
+import com.sec.doctorapp.ui.main.appointment.details.items.AppointmentDetailsUiItem
+import com.sec.doctorapp.ui.main.appointment.doctorCard.items.DoctorUiItem
+
 
 class AppointmentDetailsViewModel:ViewModel() {
-    private var _dateData= MutableLiveData<ArrayList<DateUiItem>>()
-    val dateData: LiveData<ArrayList<DateUiItem>> = _dateData
-    private var _timeData= MutableLiveData<ArrayList<TimeUiItem>>()
-    val timeData: LiveData<ArrayList<TimeUiItem>> = _timeData
+    private var _appointmentDetailsData= MutableLiveData<ArrayList<AppointmentDetailsUiItem>>()
+    val appointmentDetailsData: LiveData<ArrayList<AppointmentDetailsUiItem>> = _appointmentDetailsData
 
-    fun generateDummyDateData(){
-        val items= arrayListOf<DateUiItem>(
-            DateUiItem(date = "Sun 4"
-            ),
-            DateUiItem(date = "Mon 5"
-            ),
-            DateUiItem(date = "Tus 6"
-            ),
-            DateUiItem(date = "Wed 7"
-            ),
-            DateUiItem(date = "Thur 8"
+
+    fun generateAppointmentDetailsData(){
+        val items= arrayListOf<AppointmentDetailsUiItem>()
+
+        items.add(
+            AppointmentDetailsUiItem.DoctorDetails(
+                DoctorUiItem(
+                    doctorName = "Huzayfa",
+                    doctorCategory = "Therapist",
+                    doctorDescription = "Sit fusce ligula diam Neque vel volutpat.Vel. Facilisi aenean.",
+                    appointmentPrice = "$120.00",
+                    doctorImg = R.drawable.doctor1,
+                    doctorDetailsDescription = "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Ut commodo efficitur neque. Ut diam quam, semper iaculis condimentum ac, ves",
+                    doctorRating = "5.0",
+                    isFavoriteDoctor = true
+                )
+            )
+        )
+        items.add(
+            AppointmentDetailsUiItem.AppointmentTitleItem(
+                title = "Working Hours",
+                action = AppointmentDetailsUiItem.ACTION_WORKING_HOURS
             )
 
         )
-        _dateData.value=items
+        items.add(
+            AppointmentDetailsUiItem.TimeItem(generateTimeData())
+        )
+        items.add(
+            AppointmentDetailsUiItem.AppointmentTitleItem(
+                title = "Date",
+                action = AppointmentDetailsUiItem.ACTION_Date
+            )
+        )
+        items.add(
+            AppointmentDetailsUiItem.DateItem(generateDateData())
+        )
+        _appointmentDetailsData.value=items
+
+    }
+   private fun generateDateData(): ArrayList<String>{
+      return   arrayListOf<String>(
+       "Sun 4", "Mon 5", "Tus 6","Wed 7", "Thu 8")
+
     }
 
-    fun generateDummyTimeData(){
-        val items= arrayListOf<TimeUiItem>(
-            TimeUiItem(time = "10.00 AM"),
-            TimeUiItem(time = "11.00 AM"),
-            TimeUiItem(time = "12.00 PM"),
-            TimeUiItem(time = "13.00 PM"),
-            TimeUiItem(time = "14.00 PM"),
-
-        )
-        _timeData.value=items
+    private fun generateTimeData() : ArrayList<String>{
+     return arrayListOf<String>(
+           "10.00 AM", "11.00 AM", "12.00 PM", "13.00 PM", "14.00 PM")
     }
 }
 

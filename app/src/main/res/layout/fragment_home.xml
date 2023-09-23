@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="20dp"
+    android:paddingHorizontal="@dimen/page_horizontal_padding"
     tools:context=".ui.main.home.HomeFragment">
 
 
@@ -94,7 +94,7 @@
         android:layout_height="0dp"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:paddingVertical="20dp"
+
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_view_doctor" />

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/settings_item_margin_top">
+
+    <ImageView
+        android:id="@+id/profile_item_img"
+        android:layout_width="@dimen/profile_ic_size"
+        android:layout_height="@dimen/profile_ic_size"
+        android:background="@drawable/ic_profile_background"
+        android:paddingVertical="@dimen/profile_ic_padding_vertical"
+        android:paddingStart="@dimen/profile_ic_padding_start"
+        android:paddingEnd="@dimen/profile_ic_padding_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_history" />
+
+    <TextView
+        android:id="@+id/profile_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/profile_ic_text_margin"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/history_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/Payment_size"
+        app:layout_constraintBottom_toBottomOf="@id/profile_item_img"
+        app:layout_constraintStart_toEndOf="@id/profile_item_img"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/navigate_img"
+        android:layout_width="@dimen/profile_ic_forward_size"
+        android:layout_height="@dimen/profile_ic_forward_size"
+        android:src="@drawable/ic_forward"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="@id/profile_item_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

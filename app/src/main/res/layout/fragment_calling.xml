@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.messages.CallingFragment"
+    tools:context=".ui.main.messages.calling.CallingFragment"
     android:background="#7BC1B7">
 
     <LinearLayout

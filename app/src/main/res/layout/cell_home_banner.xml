@@ -15,7 +15,6 @@
         android:id="@+id/worm_dots_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginTop="@dimen/dots_margin_top"
         app:dotsClickable="true"
         app:dotsColor="@color/color_primary"

@@ -6,44 +6,35 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.sec.doctorapp.R
+
 import com.sec.doctorapp.databinding.FragmentMessagesBinding
-import com.sec.doctorapp.ui.main.messages.doctorMessages.DoctorMessagesAdapter
-import com.sec.doctorapp.ui.main.messages.doctorMessages.items.DoctorMessagesUiItem
-import com.sec.doctorapp.ui.main.messages.onlineDoctors.OnlineDoctorsAdapter
-import com.sec.doctorapp.ui.main.messages.onlineDoctors.OnlineDoctorsViewModel
+
+import com.sec.doctorapp.ui.main.messages.items.MessagesUiItem
 
 
 class MessagesFragment : Fragment() {
 
-private lateinit var binding:FragmentMessagesBinding
-private lateinit var messagesViewModel: MessagesViewModel
+    private lateinit var binding: FragmentMessagesBinding
+    private lateinit var messagesViewModel: MessagesViewModel
 
-private val onlineAdapter by lazy {
-    OnlineDoctorsAdapter(arrayListOf())
-
-}
-    private val doctorMessagesAdapter by lazy {
-        DoctorMessagesAdapter(arrayListOf()){
+    private val messagesAdapter by lazy {
+        MessagesAdapter(arrayListOf()) {
             openMessageDetailsScreen(it)
         }
 
     }
 
 
-    private fun openMessageDetailsScreen(it: DoctorMessagesUiItem) {
-        val bundle= bundleOf("name" to it.doctorName, "msg" to it.message)
-        findNavController().navigate(R.id.action_messagesFragment_to_messageDetailsFragment, bundle)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-      binding= FragmentMessagesBinding.inflate(layoutInflater)
-        messagesViewModel=ViewModelProvider(this)[MessagesViewModel::class.java]
+        binding = FragmentMessagesBinding.inflate(layoutInflater)
+        messagesViewModel = ViewModelProvider(this)[MessagesViewModel::class.java]
 
         callData()
         observeData()
@@ -54,29 +45,40 @@ private val onlineAdapter by lazy {
 
     private fun bindData() {
         binding.backVector.setOnClickListener() {
-findNavController().popBackStack()
+            findNavController().popBackStack()
         }
     }
 
     private fun observeData() {
-        binding.onlineDrRecyclerView.adapter=onlineAdapter
-        binding.messagesRecyclerView.adapter=doctorMessagesAdapter
+        binding.recyclerView.adapter = messagesAdapter
 
-        messagesViewModel.onlineDoctorData.observe(viewLifecycleOwner){
-            onlineAdapter.items=it
-           onlineAdapter.notifyDataSetChanged()
-        }
-       messagesViewModel.doctorMessagesData.observe(viewLifecycleOwner){
-            doctorMessagesAdapter.items=it
-            doctorMessagesAdapter.notifyDataSetChanged()
+        messagesViewModel.messagesData.observe(viewLifecycleOwner) {
+            messagesAdapter.items = it
+            messagesAdapter.notifyDataSetChanged()
         }
     }
 
     private fun callData() {
 
-      messagesViewModel.generateDummyDoctorMessagesData()
-        messagesViewModel.generateDummyOnlineDoctorsData()
+        messagesViewModel.generateMessagesData()
 
+
+    }
+
+    private fun openMessageDetailsScreen(item: MessagesUiItem) {
+       when (item){
+           is MessagesUiItem.DoctorMessages->{
+               openBookScreen(item)
+           }
+           else -> {}
+       }
+    }
+
+    private fun openBookScreen(item: MessagesUiItem.DoctorMessages) {
+        findNavController().navigate(
+            R.id.action_homeFragment_to_appointmentDetailsFragment,
+            bundleOf("item" to item)
+        )
     }
 
 

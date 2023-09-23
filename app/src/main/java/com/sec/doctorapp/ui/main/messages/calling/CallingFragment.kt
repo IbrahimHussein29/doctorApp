@@ -1,4 +1,4 @@
-package com.sec.doctorapp.ui.main.messages
+package com.sec.doctorapp.ui.main.messages.calling
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

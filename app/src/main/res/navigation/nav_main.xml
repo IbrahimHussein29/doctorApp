@@ -106,32 +106,32 @@
     </fragment>
     <fragment
         android:id="@+id/profileHistoryFragment"
-        android:name="com.sec.doctorapp.ui.main.profile.ProfileHistoryFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.profileSubs.ProfileHistoryFragment"
         android:label="fragment_profile_history"
         tools:layout="@layout/fragment_profile_history" />
     <fragment
         android:id="@+id/profilePersonalDetailsFragment"
-        android:name="com.sec.doctorapp.ui.main.profile.ProfilePersonalDetailsFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.profileSubs.ProfilePersonalDetailsFragment"
         android:label="fragment_profile_personal_details"
         tools:layout="@layout/fragment_profile_personal_details" />
     <fragment
         android:id="@+id/profileLocationFragment"
-        android:name="com.sec.doctorapp.ui.main.profile.ProfileLocationFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.profileSubs.ProfileLocationFragment"
         android:label="fragment_profile_location"
         tools:layout="@layout/fragment_profile_location" />
     <fragment
         android:id="@+id/profilePaymentMethodFragment"
-        android:name="com.sec.doctorapp.ui.main.profile.ProfilePaymentMethodFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.profileSubs.ProfilePaymentMethodFragment"
         android:label="fragment_profile_payment_method"
         tools:layout="@layout/fragment_profile_payment_method" />
     <fragment
         android:id="@+id/profileHelpFragment"
-        android:name="com.sec.doctorapp.ui.main.profile.ProfileHelpFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.profileSubs.ProfileHelpFragment"
         android:label="fragment_profile_help"
         tools:layout="@layout/fragment_profile_help" />
     <fragment
         android:id="@+id/profileSettingsFragment"
-        android:name="com.sec.doctorapp.ui.main.profile.ProfileSettingsFragment"
+        android:name="com.sec.doctorapp.ui.main.profile.profileSubs.ProfileSettingsFragment"
         android:label="fragment_profile_settings"
         tools:layout="@layout/fragment_profile_settings" />
     <fragment
@@ -153,7 +153,7 @@
     </fragment>
     <fragment
         android:id="@+id/callingFragment"
-        android:name="com.sec.doctorapp.ui.main.messages.CallingFragment"
+        android:name="com.sec.doctorapp.ui.main.messages.calling.CallingFragment"
         android:label="fragment_calling"
         tools:layout="@layout/fragment_calling" >
         <action
@@ -165,7 +165,7 @@
     </fragment>
     <fragment
         android:id="@+id/videoCallFragment"
-        android:name="com.sec.doctorapp.ui.main.messages.VideoCallFragment"
+        android:name="com.sec.doctorapp.ui.main.messages.calling.VideoCallFragment"
         android:label="fragment_video_call"
         tools:layout="@layout/fragment_video_call" >
         <action

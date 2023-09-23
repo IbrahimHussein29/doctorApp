@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="0dp"
+
     app:cardCornerRadius="@dimen/card_corner_radius"
 
 
@@ -37,12 +38,12 @@
             android:layout_marginStart="@dimen/medical_center_margin_start"
             android:layout_marginTop="@dimen/margin_small"
             android:fontFamily="@font/open_sans"
-            android:text="@string/home_card_text_description"
             android:textColor="@color/white"
             android:textSize="@dimen/card_details_size"
             app:layout_constraintEnd_toStartOf="@id/dr_img"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/medical_center_text" />
+            app:layout_constraintTop_toBottomOf="@id/medical_center_text"
+            tools:text="@string/home_card_text_description" />
 
 
         <ImageView
@@ -50,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/home_card_img"
+app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/card_description_text"

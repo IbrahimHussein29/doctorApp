@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ImageView
+        android:layout_marginTop="@dimen/page_title_margin_top"
+        android:id="@+id/doctor_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dr_details"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/dr_details_card"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        app:layout_constraintBottom_toBottomOf="@id/doctor_img"
+        app:layout_constraintStart_toEndOf="@+id/doctor_img"
+        android:id="@+id/dr_details_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="10dp"
+
+        >
+
+        <LinearLayout
+            android:id="@+id/details_doctor_connection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/doctor_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:fontFamily="@font/open_sans_bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Dr.Upal " />
+
+            <LinearLayout
+                android:layout_width="0dp"
+
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center|end">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/doctor_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/ellipse_49"
+                    android:padding="@dimen/phone_call_padding"
+                    android:src="@drawable/baseline_message_24" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/doctor_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/ellipse_49"
+                    android:padding="@dimen/phone_call_padding"
+                    android:src="@drawable/ic_phone_call"
+
+
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/doctor_video"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/ellipse_49"
+                    android:padding="@dimen/phone_call_padding"
+                    android:src="@drawable/ic_video_call" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/doctor_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/doctor_type_margin_top"
+            android:fontFamily="@font/open_sans"
+            android:textColor="@color/secondary"
+            android:textSize="@dimen/doctor_type_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/details_doctor_connection"
+            tools:text="Denteeth"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/doctor_name_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/doctor_category">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/open_sans_semibold"
+                android:text="@string/Payment_title"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Payment_size"
+                app:layout_constraintTop_toTopOf="parent"
+
+
+                />
+
+
+            <TextView
+                android:id="@+id/doctor_appointment_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textAlignment="textEnd"
+                android:textColor="@color/secondary"
+                android:textSize="@dimen/Payment_size"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="$120.00"
+
+
+                />
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/details_margin_large"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/details_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintTop_toBottomOf="@id/doctor_img"
+
+        />
+
+    <TextView
+        android:id="@+id/doctor_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/details_margin_medium"
+        android:fontFamily="@font/open_sans"
+        android:textColor="@color/color_gray"
+
+        android:textSize="@dimen/details_text_size_small"
+        app:layout_constraintTop_toBottomOf="@id/details"
+        tools:text="Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Ut commodo efficitur neque. Ut diam quam, semper iaculis condimentum ac, vestibulum eu nisl."
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

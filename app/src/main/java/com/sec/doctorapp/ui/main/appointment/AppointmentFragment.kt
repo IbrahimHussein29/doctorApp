@@ -24,11 +24,7 @@ class AppointmentFragment : Fragment() {
         }
     }
 
-    private fun openDoctorDetailsScreen(it: DoctorUiItem) {
-        val bundle=bundleOf("img" to it.doctorImg, "name" to it.doctorName, "category" to it.doctorCategory,"price" to it.appointmentPrice, "details" to it.doctorDetailsDescription )
 
-      findNavController().navigate(R.id.action_appointmentFragment_to_appointmentDetailsFragment,bundle)
-    }
 
 
     override fun onCreateView(
@@ -62,6 +58,11 @@ class AppointmentFragment : Fragment() {
 
     private fun callData() {
         doctorViewModel.generateDoctorDummyData()
+    }
+    private fun openDoctorDetailsScreen(it: DoctorUiItem) {
+        val bundle=bundleOf("item" to it )
+
+        findNavController().navigate(R.id.action_appointmentFragment_to_appointmentDetailsFragment,bundle)
     }
 
 
